@@ -11,7 +11,7 @@ SELECT * FROM Customers
 WHERE Country='Mexico';
 
 SELECT * FROM Customers
-WHERE CustomerID=1 or CustomerID=4;
+WHERE CustomerID=1 OR CustomerID=4;
 /*
 =	Equal	
 >	Greater than	
