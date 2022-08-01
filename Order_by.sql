@@ -9,7 +9,7 @@ ORDER BY column1, column2, ... ASC|DESC;Customers
 */
 -- ex:
 SELECT * FROM Customers
-ORDER BY Country;
+ORDER BY Country ASC;
 
 SELECT * FROM Customers
 ORDER BY Country DESC;
