@@ -61,5 +61,40 @@ Sử dụng câu lệnh truy vấn SQL lấy ra mã số, tên đề tài của 
 select * from TBLDeTai
 where Kinhphi = (
 select max(Kinhphi) from TBLDeTai
-)
+);
+
+/*
+Sử dụng câu lệnh SQL xuất ra Tên khoa, Số lượng sinh viên của mỗi khoa .
+*/
+
+select TBLKhoa.Tenkhoa, count(TBLSinhVien.Hotensv) as SoLuongSV
+from TBLKhoa left join
+TBLSinhVien on
+TBLKhoa.Makhoa = TBLSinhVien.Makhoa
+group by TBLKhoa.Makhoa;
+
+/*
+Sử dụng truy vấn SQL xuất ra mã số, họ tên và điểm của các sinh viên khoa ‘DIALY và QLTN’ .
+*/
+
+select TBLSinhVien.Masv, TBLSinhVien.Hotensv, TBLHuongDan.KetQua
+from TBLSinhVien left join
+TBLKhoa on TBLKhoa.Makhoa = TBLSinhVien.Makhoa
+left join TBLHuongDan 
+on TBLHuongDan.Masv = TBLSinhVien.Masv
+where TBLKhoa.Tenkhoa ="Dia ly va QLTN";
+
+/*
+Sử dụng câu lệnh SQL xuất ra danh sách gồm Mã số, Họ tên và Tuổi của các sinh viên khoa ‘TOAN’ 
+*/
+
+select TBLSinhVien.Masv, TBLSinhVien.Hotensv, TBLSinhVien.Namsinh from TBLSinhVien
+left join TBLKhoa on
+TBLKhoa.Makhoa = TBLSinhVien.Makhoa
+where TBLKhoa.Tenkhoa = "Toan";
+
+
+
+
+
 
