@@ -42,3 +42,10 @@ WHERE ProductID = ALL
   (SELECT ProductID
   FROM OrderDetails
   WHERE Quantity = 10);
+  
+select CustomerName 
+from Customers
+where City = any(
+select City from Customers 
+where City = "My Tho"
+)

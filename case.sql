@@ -18,3 +18,16 @@ WHEN Quantity = 30 THEN 'The quantity is 30'
 ELSE 'The quantity is under 30'
 END AS CaseNayKhacGiIfElseDau
 FROM OrderDetails;
+
+/*
+The following SQL will order the customers by City. However, if City is NULL, then order by Country
+(All record not null will order by city, except record null order by country)
+*/
+
+SELECT CustomerName, City, Country
+FROM Customers
+ORDER BY
+(CASE
+    WHEN City IS NULL THEN Country
+    ELSE City
+END);
